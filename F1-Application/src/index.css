@@ -1,3 +1,103 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#SM-main,body,#a,#b{
+    margin: 0;
+}
+#SM-main{
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: 2fr 3fr;
+}
+#mainBody{
+    height: 100vh;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+}
+#a{
+}
+#SM-standings{
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    padding: 4px;
+}
+
+#SM-header{
+    display: flex;
+}
+#SM-year-container{
+    flex-grow: 1;
+    display: flex;
+}
+#SM-year{
+    height: 2.2em;
+    align-self: center;
+    margin-left: 8px;
+    width:5em;
+}
+#SM-title{
+    flex-grow: 4;
+}
+h3{
+    text-align: center;
+}
+#SM-nav{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+}
+#SM-favorites, #SM-about{
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: auto;
+}
+#SM-height-setter{
+    display: flex;
+    flex-direction: column;
+}
+#SM-race-content{
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.SM-rightList-Main, .SM-leftList-Main{
+    flex-grow: 1;
+    margin: 8px;
+    background-color: dimgray;
+    color: lightgray;
+}
+.SM-leftList-Main > li,.SM-rightList-Main > li{
+    display: flex;
+}
+.SM-Name{
+    flex-grow: 5;
+    text-align: right;
+    margin-right: 12px;
+}
+.SM-Points, .SM-Wins, .SM-Position{
+    margin: 0 10px;
+}
+#SM-constructors, #SM-drivers{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100%;
+}
+#SM-races-List > li{
+    display: flex;
+}
+.SM-races-Name{
+    flex-grow: 5;
+    text-align: right;
+    margin-right: 12px;
+}
+.SM-races-Results{
+    margin-right: 4px;
+}
+.SM-reces-Standings{
+    margin-right: 4px;
+}
