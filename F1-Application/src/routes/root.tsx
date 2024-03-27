@@ -1,4 +1,4 @@
-import Modal from "../components/modal";
+import Modal from "../components/modalComponents/modal";
 import MainPage from "../components/primaryPageContent/mainpage"
 
 //Subset of data requested Via: https://absorbed-deluxe-nyala.glitch.me/api/seasons 
@@ -7,9 +7,6 @@ const data = {years: years}
 export default function Root() {
     return (
         <div>
-            <Modal/>    {
-                        //This will be where you pass any information that we will need to display in a modal
-                        }
             <MainPage data={data}></MainPage>
         </div>
     )
