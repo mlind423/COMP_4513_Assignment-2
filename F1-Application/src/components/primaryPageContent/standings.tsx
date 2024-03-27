@@ -1,8 +1,17 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
 export default function PrimaryPageContent(props) {
+    let IsModalVisible:boolean = false;
+    const [driver, setDriver] = useState()
     const clickhandler = (c) =>{
-        alert("IG add " + c.target.value+ " to the favorites list");
+        // alert("IG add " + c.target.value+ " to the favorites list");
+        setDriver(c.target.value)
+        if(IsModalVisible == false){
+            IsModalVisible = true
+            document.getElementById(`${driver}`).showModal()
+        }else{
+            IsModalVisible = false 
+        }
     }
     return(
         <div id="SM-standings">
@@ -14,8 +23,8 @@ export default function PrimaryPageContent(props) {
                     <li>
                         <div className="SM-Position">{c.position}</div>
                         {/* This generates every modal when the list is generated which could be an issue */}
-                        <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/>
-                        {/* <button className="SM-Name" value={c.drivers.forename + " " + c.drivers.surname} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button> */}
+                        {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
+                        <button className="SM-Name" value={c.drivers.forename + " " + c.drivers.surname} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
@@ -26,7 +35,7 @@ export default function PrimaryPageContent(props) {
                     return (
                     <li>
                         <div className="SM-Position">{c.position}</div>
-                        <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef}/>
+                        {/* <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef} test="test"/> */}
                         {/* <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button> */}
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
@@ -34,6 +43,7 @@ export default function PrimaryPageContent(props) {
                 })}
                 </ul>
             </div>
+            {IsModalVisible ? (null) : (<Modal text={driver + " " + driver} type='driver' surname={driver} forename={driver} refId={driver} />)}
         </div>
     )
 
