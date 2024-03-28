@@ -17,7 +17,9 @@ export default function PrimaryPageContent(props) {
         <div id="SM-standings">
             <h3>Standings</h3>
             <div id="SM-race-content">
-                <ul className="SM-leftList-Main">
+                
+                <ul className="SM-leftStanding">
+                <h4>Drivers</h4>
                 {props.data.drivers.map(c => {
                     return (
                     <li>
@@ -30,13 +32,14 @@ export default function PrimaryPageContent(props) {
                     </li>)
                 })}
                 </ul>
-                <ul className="SM-rightList-Main">
+                <ul className="SM-rightStanding">
+                <h4></h4>
                 {props.data.constructors.map(c => {
                     return (
                     <li>
                         <div className="SM-Position">{c.position}</div>
                         {/* <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef} test="test"/> */}
-                        {/* <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button> */}
+                        <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)

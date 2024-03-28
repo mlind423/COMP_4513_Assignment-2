@@ -1,6 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+h4{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+#SM-Card-Container{
+    width: 100%;
+    display: flex;
+}
+.SM-Results-Card{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    flex-grow: 1;
+    padding: 4px;
+    margin: 4px;
+    background-color: white;
+    color: black;
+}
 #SM-main,body,#a,#b{
     margin: 0;
 }
@@ -65,22 +84,34 @@ h3{
     margin-bottom: 10px;
 }
 
-.SM-rightList-Main, .SM-leftList-Main{
+.SM-rightStanding, .SM-leftStanding, .SM-rightResults, .SM-leftResults{
     flex-grow: 1;
     margin: 8px;
     background-color: dimgray;
     color: lightgray;
 }
-.SM-leftList-Main > li,.SM-rightList-Main > li{
+.SM-leftStanding > li,.SM-rightStanding > li{
     display: flex;
 }
 .SM-Name{
     flex-grow: 5;
-    text-align: right;
+    text-align: left;
     margin-right: 12px;
 }
 .SM-Points, .SM-Wins, .SM-Position{
     margin: 0 10px;
+}
+.SM-Position{
+    width: 18px;
+}
+.SM-leftResults > li{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 62px 62px 62px;
+    width: 100%;
+}
+.SM-rightResults > li{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 32px 32px;
 }
 #SM-constructors, #SM-drivers{
     margin-left: 10px;
