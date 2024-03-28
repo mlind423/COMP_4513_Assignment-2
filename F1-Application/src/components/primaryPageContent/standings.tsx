@@ -1,17 +1,12 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
 export default function PrimaryPageContent(props) {
-    let IsModalVisible:boolean = false;
-    const [driver, setDriver] = useState()
+    let IsModalVisible:boolean = true;
+    const [driver, setDriver] = useState(props.data)
     const clickhandler = (c) =>{
         // alert("IG add " + c.target.value+ " to the favorites list");
-        setDriver(c.target.value)
-        if(IsModalVisible == false){
-            IsModalVisible = true
-            document.getElementById(`${driver}`).showModal()
-        }else{
-            IsModalVisible = false 
-        }
+        setDriver(props.data.drivers.find((e:any) => e.drivers.driverRef === c.target.value))
+        document.getElementById(`${driver.drivers.driverRef}`).showModal()
     }
     return(
         <div id="SM-standings">
@@ -26,7 +21,7 @@ export default function PrimaryPageContent(props) {
                         <div className="SM-Position">{c.position}</div>
                         {/* This generates every modal when the list is generated which could be an issue */}
                         {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                        <button className="SM-Name" value={c.drivers.forename + " " + c.drivers.surname} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                        <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.drivers.driverRef} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
@@ -39,14 +34,14 @@ export default function PrimaryPageContent(props) {
                     <li>
                         <div className="SM-Position">{c.position}</div>
                         {/* <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef} test="test"/> */}
-                        <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
+                        <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
                 })}
                 </ul>
             </div>
-            {IsModalVisible ? (null) : (<Modal text={driver + " " + driver} type='driver' surname={driver} forename={driver} refId={driver} />)}
+            {IsModalVisible ? (<Modal data={driver} type="driver"/>) : (<></>)}
         </div>
     )
 
