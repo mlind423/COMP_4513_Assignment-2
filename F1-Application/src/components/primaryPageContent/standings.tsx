@@ -1,13 +1,8 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
+
 export default function PrimaryPageContent(props) {
-    let IsModalVisible:boolean = true;
-    const [driver, setDriver] = useState(props.data)
-    const clickhandler = (c) =>{
-        // alert("IG add " + c.target.value+ " to the favorites list");
-        setDriver(props.data.drivers.find((e:any) => e.drivers.driverRef === c.target.value))
-        document.getElementById(`${driver.drivers.driverRef}`).showModal()
-    }
+
     return(
         <div id="SM-standings">
             <h3>Standings</h3>
@@ -41,7 +36,6 @@ export default function PrimaryPageContent(props) {
                 })}
                 </ul>
             </div>
-            {IsModalVisible ? (<Modal data={driver} type="driver"/>) : (<></>)}
         </div>
     )
 

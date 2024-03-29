@@ -1,28 +1,22 @@
 import { useState } from "react"
+import FavButton from "./favouritesButton"
 export default function DriverContent(props) {
     // I Should move this to a different file since it will need to be used on multiple modals
-    const [fav, setFav] = useState('♡')
-    const handler = () => {
-        if (fav == '♡') {
-            setFav("♥")
-        } else {
-            setFav("♡")
-        }
-    }
-    if (props.type == "driver") {
+    
+    if (props.type == "driver") {//This prevents the driver formatting from appearing in a different modal 
         return (
             <div className="flex flex-col w-full modal-box w-100 px-3 py-3">
                 <h1>Driver details</h1>
                 <div className="flex w-full">
                     <div className="grid h-auto flex-grow card bg-base-300 rounded-box grid grid-cols-2 gap-4 place-items-center">
                         <div className="gird grid-rows-5 gap-4 px-3 py-3">
-                            <p>{props.forename} {props.surname}</p>
-                            <p>{props.forename} {props.surname}</p>
-                            <p>{props.forename} {props.surname}</p>
-                            <p>{props.forename} {props.surname}</p>
-                            <p>{props.forename} {props.surname}</p>
+                            <p>{props.data.drivers.forename} {props.data.drivers.surname}</p>
+                            <p>{props.data.drivers.forename} {props.data.drivers.surname}</p>
+                            <p>{props.data.drivers.forename} {props.data.drivers.surname}</p>
+                            <p>{props.data.drivers.forename} {props.data.drivers.surname}</p>
+                            <p>{props.data.drivers.forename} {props.data.drivers.surname}</p>
                         </div>
-                        <button className="btn text-3xl text-green-500 btn-circle" onClick={handler}>{fav}</button>
+                        <FavButton type={props.type} data={props.data}/>
                     </div>
                 </div>
                 <div className="divider"></div>

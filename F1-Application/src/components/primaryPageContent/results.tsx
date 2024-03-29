@@ -2,22 +2,23 @@ import Modal from "../modalComponents/modal";
 import { useState } from "react";
 
 export default function Results(props) {
-    let IsModalVisible:boolean = false;
-    const [driver, setDriver] = useState();
     let raceData = props.raceData[0];
-    const clickhandler = (c) =>{
+    const [driver, setDriver] = useState()
+    const [constructor, setConstructor] = useState()
+    const handleModal = (c) =>{
         // alert("IG add " + c.target.value+ " to the favorites list");
-        setDriver(c.target.value)
-        if(IsModalVisible == false){
-            IsModalVisible = true
-            document.getElementById(`${driver}`).showModal()
-        }else{
-            IsModalVisible = false 
+        if(c.target.id == 'driver'){
+            setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
+        }else if(c.target.id == 'constructor'){
+            setConstructor(props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
         }
+        document.getElementById(`${c.target.id}`).showModal() //This is how the modal opens and it is a daisy function so I have no Idea why it is giving an error
     }
-
     return(
+        
         <div id="SM-standings">
+            <Modal data={driver} type="driver"/> {/**I need to generate a dummy modal to prevent errors due to the .showModal Function */}
+            <Modal data={constructor} type="constructor"/>
             <h3>Results</h3>
             <p>{`${raceData.name}, 
             Round ${raceData.round}, 
@@ -37,8 +38,8 @@ export default function Results(props) {
                             <div className="SM-Position">{c.position}</div>
                             {/* This generates every modal when the list is generated which could be an issue */}
                             {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                            <button className="SM-Name" value={c.drivers.forename + " " + c.drivers.surname} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
-                            <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
+                            <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                            <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                             <div className="SM-q">{c.q1}</div>
                             <div className="SM-q">{c.q2}</div>
                             <div className="SM-q">{c.q3}</div>
@@ -58,15 +59,15 @@ export default function Results(props) {
                             <div className="SM-Position">{c.position}</div>
                             {/* This generates every modal when the list is generated which could be an issue */}
                             {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                            <button className="SM-Name" value={c.drivers.forename + " " + c.drivers.surname} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
-                            <button className="SM-Name" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
+                            <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                            <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                             <div className="SM-Results-Laps">{c.laps}</div>
                             <div className="SM-Results-Pts">{c.points}</div>
                         </li>)
                     })}
                 </ul>
             </div>
-            {IsModalVisible ? (null) : (<Modal text={driver + " " + driver} type='driver' surname={driver} forename={driver} refId={driver} />)}
+            {/* {isModalVisible ? (<Modal data={driver} type="driver"/>) : (<></>)} */}
         </div>
 
     )
