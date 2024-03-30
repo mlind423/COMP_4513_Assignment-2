@@ -1,7 +1,7 @@
 import { useState } from "react"
 import FavButton from "./favouritesButton"
-export default function DriverContent(props) {
-    // I Should move this to a different file since it will need to be used on multiple modals
+export default function DriverContent(props:any) {
+
     
     if (props.type == "driver") {//This prevents the driver formatting from appearing in a different modal 
         return (

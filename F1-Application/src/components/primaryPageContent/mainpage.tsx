@@ -1,12 +1,18 @@
 import { useState } from "react"
 import YearSelector from "./yearSelector"
 import PrimaryPageContent from "./primaryPageContent"
+import Modal from "../modalComponents/modal"
 //const [selectedYear, setYear] = useState();
-export default function MainPage(props) {
+export default function MainPage(props:any) {
+    const handleModal = (c:any) => {
+        (document.getElementById(`favourites`) as HTMLFormElement).showModal()
+    }
+
     return (
     <div id="mainBody">
         <header id="SM-header"> 
             <div id="SM-year-container">
+                
                 <YearSelector years={props.data.years} ></YearSelector>
                 {/* <select id="SM-year">
                     <option value="2023">2023</option>
@@ -17,7 +23,8 @@ export default function MainPage(props) {
             </div>
             <h3 id="SM-title">F1 Dashboard Babey</h3>
             <nav id="SM-nav">
-                <button id="SM-favorites">Favorites</button>
+                <Modal type='favourites' />
+                <button className="btn rounded-full bg-inherit border-transparent text-inherit border-0" id="SM-favorites" onClick={handleModal} >Favorites</button>
                 <button id="SM-about">About</button>
             </nav>
         </header>

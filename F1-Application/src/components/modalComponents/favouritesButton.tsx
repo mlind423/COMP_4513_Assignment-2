@@ -1,7 +1,6 @@
-import { setDriver } from "localforage"
 import { useEffect, useState } from "react"
-export default function FavButton (props) {
-    const [drivers, setDrivers] = useState([]) //I need to create an object that I can add to for the state
+export default function FavButton (props:any) {
+    const [drivers, setDrivers] = useState(Array<string>) 
     const [fav, setFav] = useState('♡')
     
     const handler = () => {
@@ -13,10 +12,11 @@ export default function FavButton (props) {
             removeFromFavourites()
         }
     }
+    
     const addToFavourites = () =>{
         if(props.type === 'driver'){
             setDrivers(JSON.parse(localStorage.getItem('drivers') || '[]'))
-            const temp = [...drivers, props.data]
+            const temp:string[] = [...drivers, props.data.drivers.driverRef]
             setDrivers(temp)
         }else if(props.type === 'constructor'){
 
@@ -24,16 +24,18 @@ export default function FavButton (props) {
 
         }
     }
+    
+    const removeFromFavourites = () => {
+
+    }
+    const checkForFavourites = (type:string) => {
+
+    }
+    
     useEffect(() => {
         localStorage.removeItem('drivers')
         localStorage.setItem('drivers', JSON.stringify(drivers));
     }, [drivers])
-    const removeFromFavourites = () => {
-
-    }
-    const checkForFavourites = () => {
-
-    }
 
     return(
         <button className="btn text-3xl text-green-500 btn-circle" onClick={handler}>{fav}</button>

@@ -3,7 +3,7 @@ import Races from "./races";
 import Standings from "./standings";
 import Results from "./results";
 import { useState } from "react";
-export default function PrimaryPageContent(props) {
+export default function PrimaryPageContent(props:any) {
 //Might want to reactively request the year on change idk
 //For now functionality is being tested on one year sampled from the api
 //https://absorbed-deluxe-nyala.glitch.me/api/races/season/2013

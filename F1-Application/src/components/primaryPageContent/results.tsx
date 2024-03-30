@@ -1,18 +1,18 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
 
-export default function Results(props) {
+export default function Results(props:any) {
     let raceData = props.raceData[0];
     const [driver, setDriver] = useState()
     const [constructor, setConstructor] = useState()
-    const handleModal = (c) =>{
+    const handleModal = (c:any) =>{
         // alert("IG add " + c.target.value+ " to the favorites list");
         if(c.target.id == 'driver'){
             setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
         }else if(c.target.id == 'constructor'){
             setConstructor(props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
         }
-        document.getElementById(`${c.target.id}`).showModal() //This is how the modal opens and it is a daisy function so I have no Idea why it is giving an error
+        (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
     }
     return(
         
@@ -32,7 +32,7 @@ export default function Results(props) {
             <div id="SM-race-content">
                 <ul className="SM-leftResults">
                     <h4>Qualifying</h4>
-                    {props.qualifyingData.map((c,index) => {
+                    {props.qualifyingData.map((c:any,index:any) => {
                         return (
                         <li key={index}>
                             <div className="SM-Position">{c.position}</div>
@@ -53,7 +53,7 @@ export default function Results(props) {
                         <div className="SM-Results-Card">{props.resultsData[1].drivers.forename + " " + props.resultsData[1].drivers.surname}<h5>2nd</h5></div>
                         <div className="SM-Results-Card">{props.resultsData[2].drivers.forename + " " + props.resultsData[2].drivers.surname}<h5>3rd</h5></div>
                     </div>
-                    {props.resultsData.map((c,index) => {
+                    {props.resultsData.map((c:any,index:any) => {
                         return (
                         <li key={index}>
                             <div className="SM-Position">{c.position}</div>
