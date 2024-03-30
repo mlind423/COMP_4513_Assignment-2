@@ -1,17 +1,27 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
 
-export default function PrimaryPageContent(props:any) {
-    const clickhandler = () => {
-        alert("hiii");
-    }
+export default function PrimaryPageContent(props:any:any) {
     if (!(props.data.drivers && props.data.constructors)){
         return null;
     }
     else if (props.data.drivers.error){
+        return null;
+    }    
+    const [driver, setDriver] = useState()
+    const [constructor, setConstructor] = useState()
+    const handleModal = (c:any) =>{
+        if(c.target.id == 'driver'){
+            setDriver(props.data.drivers.find((e:any) => e.drivers.driverRef === c.target.value))
+        }else if(c.target.id == 'constructor'){
+            setConstructor(props.data.constructors.find((e:any) => e.constructors.constructorRef === c.target.value))
+        }
+        (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
     }
     return(
         <div id="SM-standings">
+            <Modal data={driver} type="driver"/>
+            <Modal data={constructor} type="constructor"/>
             <h3>Standings</h3>
             <div id="SM-race-content">
                 
@@ -29,7 +39,7 @@ export default function PrimaryPageContent(props:any) {
                         <div className="SM-Position">{c.position}</div>
                         {/* This generates every modal when the list is generated which could be an issue */}
                         {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                        <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.drivers.driverRef} onClick={clickhandler}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                        <button id="driver" className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
@@ -49,7 +59,7 @@ export default function PrimaryPageContent(props:any) {
                     <li key={index}>
                         <div className="SM-Position">{c.position}</div>
                         {/* <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef} test="test"/> */}
-                        <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.constructors.name} onClick={clickhandler}>{c.constructors.name}</button>
+                        <button id="constructor" className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
