@@ -91,15 +91,18 @@ h3{
     color: lightgray;
 }
 .SM-leftStanding > li,.SM-rightStanding > li{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
 }
 .SM-Name{
     flex-grow: 5;
-    text-align: left;
-    margin-right: 12px;
+    text-align: center;
+    
 }
+
 .SM-Points, .SM-Wins, .SM-Position{
     margin: 0 10px;
+    text-align: center;
 }
 .SM-Position{
     width: 18px;
@@ -119,7 +122,11 @@ h3{
     height: 100%;
 }
 #SM-races-List > li{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr 3fr;
+}
+.SM-races-Round{
+    margin: 0 10px;
 }
 .SM-races-Name{
     flex-grow: 5;
@@ -128,9 +135,11 @@ h3{
 }
 .SM-races-Results{
     margin-right: 4px;
+    text-align: center;
 }
 .SM-reces-Standings{
     margin-right: 4px;
+    text-align: center;
 }
 img{
     width: 100%;

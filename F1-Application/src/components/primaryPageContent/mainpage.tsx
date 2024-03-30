@@ -1,9 +1,16 @@
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import YearSelector from "./yearSelector"
 import PrimaryPageContent from "./primaryPageContent"
 import Modal from "../modalComponents/modal"
 //const [selectedYear, setYear] = useState();
-export default function MainPage(props:any) {
+
+
+
+export default function MainPage() {
+    
+    const [currentYear, setCurrentYear] = useState();
+    
+    
     const handleModal = (c:any) => {
         (document.getElementById(`favourites`) as HTMLFormElement).showModal()
     }
@@ -12,14 +19,7 @@ export default function MainPage(props:any) {
     <div id="mainBody">
         <header id="SM-header"> 
             <div id="SM-year-container">
-                
-                <YearSelector years={props.data.years} ></YearSelector>
-                {/* <select id="SM-year">
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                </select> */}
+                <YearSelector  setter={setCurrentYear} ></YearSelector>
             </div>
             <h3 id="SM-title">F1 Dashboard Babey</h3>
             <nav id="SM-nav">
@@ -29,24 +29,10 @@ export default function MainPage(props:any) {
             </nav>
         </header>
 
-        <PrimaryPageContent>
+        <PrimaryPageContent currentYear={currentYear}>
 
 
         </PrimaryPageContent>
-        {/* <div id="SM-main">
-            <p id="a">a</p>
-            <div id="SM-standings">
-                <h3>Standings</h3>
-                <div id="SM-race-content">
-                    <div id="SM-drivers">
-                        Blah
-                    </div>
-                    <div id="SM-constructors">
-                        Blah
-                    </div>
-                </div>
-            </div>
-        </div> */}
     </div>
     )
 }
