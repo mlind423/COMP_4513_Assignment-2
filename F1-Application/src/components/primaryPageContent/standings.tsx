@@ -1,7 +1,7 @@
 import Modal from "../modalComponents/modal";
 import { useState } from "react";
 
-export default function PrimaryPageContent(props:any:any) {
+export default function PrimaryPageContent(props:any) {
     if (!(props.data.drivers && props.data.constructors)){
         return null;
     }
