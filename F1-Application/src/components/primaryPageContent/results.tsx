@@ -6,7 +6,6 @@ export default function Results(props:any) {
     const [driver, setDriver] = useState()
     const [constructor, setConstructor] = useState()
     const handleModal = (c:any) =>{
-        // alert("IG add " + c.target.value+ " to the favorites list");
         if(c.target.id == 'driver'){
             setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
         }else if(c.target.id == 'constructor'){
@@ -17,13 +16,14 @@ export default function Results(props:any) {
     return(
         
         <div id="SM-standings">
-            <Modal data={driver} type="driver"/> {/**I need to generate a dummy modal to prevent errors due to the .showModal Function */}
+            <Modal data={driver} type="driver"/>
             <Modal data={constructor} type="constructor"/>
+            <Modal data={raceData} type="circuit" />
             <h3>Results</h3>
             <p>{`${raceData.name}, 
             Round ${raceData.round}, 
             ${raceData.year}, `}
-            <button>{raceData.circuits.name}</button>
+            <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id="circuit" onClick={handleModal}>{raceData.circuits.name}</button>
             {raceData.date + ", "}
             <a href={raceData.url}>Link</a>
             
