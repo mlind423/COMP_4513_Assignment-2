@@ -25,7 +25,7 @@ useEffect(()=> {
         console.log("Results url is" + url);
         fetch (url)
         .then( resp => resp.json() )
-        .then( data => { setQualifyingData(data); })
+        .then( data => {setQualifyingData(data); })
         url = "https://absorbed-deluxe-nyala.glitch.me/api/results/" + currentView[1];
         fetch (url)
         .then( resp => resp.json() )

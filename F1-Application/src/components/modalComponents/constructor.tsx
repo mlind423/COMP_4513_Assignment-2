@@ -13,7 +13,7 @@ export default function ConstructorContent(props:any) {
         return (
             <div className="flex flex-col w-full modal-box w-100 px-3 py-3">
                 <h1>Constructor details</h1>
-                 
+                <h1>{props.data.constructors.name}</h1>
             </div>
         )
     } else {

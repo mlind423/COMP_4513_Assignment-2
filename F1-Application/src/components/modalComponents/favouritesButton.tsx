@@ -4,7 +4,7 @@ export default function FavButton (props:any) {
     const [constructors, setConstructors] = useState(Array<string>)
     const [circuits, setCircuits] = useState(Array<string>)
     const [fav, setFav] = useState('♡')
-    
+    //I need to find a way to save the state of the favourites button so it displays the correct info based on the open modal.
     const handler = () => {
         if (fav == '♡') {
             setFav("♥")

@@ -2,7 +2,8 @@ import Modal from "../modalComponents/modal";
 import { useState } from "react";
 
 export default function Results(props:any) {
-    
+    const [driver, setDriver] = useState()
+    const [constructor, setConstructor] = useState()
     if (!(props.resultsData && props.qualifyingData && props.raceData)){
         return null;
     }
@@ -11,8 +12,7 @@ export default function Results(props:any) {
     }
     else{
         let raceData = props.raceData[0];
-        const [driver, setDriver] = useState()
-        const [constructor, setConstructor] = useState()
+        
         const handleModal = (c:any) =>{
             // alert("IG add " + c.target.value+ " to the favorites list");
             if(c.target.id == 'driver'){
@@ -22,6 +22,7 @@ export default function Results(props:any) {
             }
             (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
         }
+        
         return(
         
             <div id="SM-standings">
