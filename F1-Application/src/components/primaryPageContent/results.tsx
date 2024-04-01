@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function Results(props:any) {
     const [driver, setDriver] = useState()
     const [constructor, setConstructor] = useState()
+    const [circuit, setCircuit]= useState()
     if (!(props.resultsData && props.qualifyingData && props.raceData)){
         return null;
     }
@@ -19,6 +20,8 @@ export default function Results(props:any) {
                 setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
             }else if(c.target.id == 'constructor'){
                 setConstructor(props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
+            }else if(c.target.id == 'circuit'){
+                setCircuit(raceData)
             }
             (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
         }
@@ -28,11 +31,12 @@ export default function Results(props:any) {
             <div id="SM-standings">
                 <Modal data={driver} type="driver"/> {/**I need to generate a dummy modal to prevent errors due to the .showModal Function */}
                 <Modal data={constructor} type="constructor"/>
+                <Modal data={circuit} type="circuit"/>
                 <h3>Results</h3>
                 <p>{`${raceData.name}, 
                 Round ${raceData.round}, 
                 ${raceData.year}, `}
-                <button>{raceData.circuits.name + ","}</button>
+                <button className="btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
                 {" " + raceData.date + ", "}
                 <a href={raceData.url}>Link</a>
                 

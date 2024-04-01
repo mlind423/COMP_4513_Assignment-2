@@ -6,9 +6,9 @@ export default function Modal(props:any) {
     //onClick={() => document.getElementById(`${props.refId}`).showModal()}
     if(props.data != undefined){
         return (
-            <div className="w-100vw">
+            <div className="size-auto">
                 <dialog id={props.type} className="modal w-100vw">
-                    <div className="modal-box px-10 py-10 w-auto overflow-hidden">
+                    <div className="modal-box px-10 py-10 max-w-none w-auto overflow-hidden">
                         <form method="dialog">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         </form>
