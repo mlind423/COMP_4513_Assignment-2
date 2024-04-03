@@ -3,17 +3,31 @@ export default function Races(props:any) {
     //This will change the display on the right when clicked
     const clickhandler = (c:any) =>{
         let view = c.target.value.split(",");
-        props.setCurrentView(view);
+        props.setters.setCurrentView(view);
+        props.setters.setDriversStandings();
+        props.setters.setConstructorsStandings();
+        props.setters.setQualifyingData();
     }
     if (!props.raceData){
-        return(null)
+        return (
+            <div className="SM-Left">
+                <span className="loading loading-spinner loading-lg"></span>
+                <p>This may take a while, Glitch API is waking up</p>
+            </div>
+        )
+        ;
     } 
-    else if (props.raceData.error){
-        return(null)
+    if (props.raceData.error == "Put in a year silly :p"){
+        console.log(props.raceData.error)
+        return <div id="SM-Left">Welcome, Please select a year to begin viewing races </div>;
+    }
+    if (props.raceData.error){
+        console.log(props.raceData.error)
+        return <div id="SM-Left"> It seems we are having issues finding the race data, please email me at spencer.james.reid@gmail.com to report this.</div>
     }
     else{
         return(
-            <div id="a">
+            <div id="SM-Left">
                 <ul id="SM-races-List">
                     <li>
                         <div className="SM-races-Round">#</div>
@@ -26,8 +40,8 @@ export default function Races(props:any) {
                             <li key={c.round}>
                                 <div className="SM-races-Round">{c.round}</div>
                                 <div className="SM-races-Name">{c.name}</div>
-                                <button className="SM-races-Results btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={"Results," + c.raceId} onClick={clickhandler}>Results</button>
-                                <button className="SM-reces-Standings btn btn-sm rounded-full bg-inherit border-transparent text-inherit border-0" value={"Standings," + c.raceId}  onClick={clickhandler}>Standings</button>
+                                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" value={"Results," + c.raceId} onClick={clickhandler}>Results</button>
+                                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" value={"Standings," + c.raceId}  onClick={clickhandler}>Standings</button>
                             </li>
                         )
                     })}

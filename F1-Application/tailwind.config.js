@@ -9,5 +9,18 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#38bdf8",
+          secondary: "#0c4a6e",
+          accent: "#bae6fd",
+          "accent-content": "black"
+        },
+      },
+    ],
+  },
 }
 
