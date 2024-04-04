@@ -42,7 +42,7 @@ export default function PrimaryPageContent(props:any) {
                         <div className="SM-Position">{c.position}</div>
                         {/* This generates every modal when the list is generated which could be an issue */}
                         {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                        <button id="driver" className="text-secondary-content btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0" value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                        <button id="driver" className="text-secondary-content btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0" value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)
@@ -62,7 +62,7 @@ export default function PrimaryPageContent(props:any) {
                     <li key={index}>
                         <div className="SM-Position">{c.position}</div>
                         {/* <Modal text={c.constructors.name} type='constructor' key={c.constructors.constructorRef} refId={c.constructors.constructorRef} test="test"/> */}
-                        <button id="constructor" className="text-secondary-content btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0" value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
+                        <button id="constructor" className="text-secondary-content btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0" value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                         <div className="SM-Points">{c.points}</div>
                         <div className="SM-Wins">{c.wins}</div>
                     </li>)

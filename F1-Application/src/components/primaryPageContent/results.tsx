@@ -38,7 +38,7 @@ export default function Results(props:any) {
                 <p>{`${raceData.name}, 
                 Round ${raceData.round}, 
                 ${raceData.year}, `}
-                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
+                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-1 border-transparent text-primary-content border-0" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
                 {" " + raceData.date + ", "}
                 <a href={raceData.url} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                 
@@ -61,8 +61,8 @@ export default function Results(props:any) {
                                 <div className="SM-Position">{c.position}</div>
                                 {/* This generates every modal when the list is generated which could be an issue */}
                                 {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                                <button className="btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0 " id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
-                                <button className="btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0 " id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
+                                <button className="btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0 " id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                                <button className="btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0 " id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                                 <div >{c.q1}</div>
                                 <div >{c.q2}</div>
                                 <div >{c.q3}</div>
@@ -89,8 +89,8 @@ export default function Results(props:any) {
                                 <div className="SM-Position">{c.position}</div>
                                 {/* This generates every modal when the list is generated which could be an issue */}
                                 {/* <Modal text={c.drivers.forename + " " + c.drivers.surname} type='driver' surname={c.drivers.surname} forename={c.drivers.forename} refId={c.drivers.driverRef}/> */}
-                                <button className="btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0 " id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
-                                <button className="btn btn-secondary btn-sm rounded-full  border-transparent text-secondary-content border-0 " id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
+                                <button className="btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0 " id='driver' value={c.drivers.driverRef} onClick={handleModal}>{c.drivers.forename + " " + c.drivers.surname}</button>
+                                <button className="btn btn-secondary btn-sm rounded-full m-2 border-transparent text-secondary-content border-0 " id='constructor' value={c.constructors.constructorRef} onClick={handleModal}>{c.constructors.name}</button>
                                 <div >{c.laps}</div>
                                 <div >{c.points}</div>
                             </li>)
