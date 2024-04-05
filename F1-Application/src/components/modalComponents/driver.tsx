@@ -26,7 +26,7 @@ export default function DriverContent(props: any) {
                             <a className="underline text-sky-400 hover:text-sky-200" href={props.data.drivers.url}>Wiki Page</a>
                         </div>
                         <div className="mr-10">
-                            <FavButton type={props.type} data={props.data} />
+                            <FavButton type={props.type} data={props.data} fav={props.fav} favHandle={props.favHandle}/>
                         </div>
                     </div>
                 </div>

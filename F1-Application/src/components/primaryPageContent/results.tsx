@@ -18,11 +18,15 @@ export default function Results(props:any) {
             // alert("IG add " + c.target.value+ " to the favorites list");
             if(c.target.id == 'driver'){
                 setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
+                props.favCheck(c.target.id, props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
             }else if(c.target.id == 'constructor'){
                 setConstructor(props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
+                props.favCheck(c.target.id, props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
             }else if(c.target.id == 'circuit'){
                 setCircuit(raceData)
+                props.favCheck(c.target.id, raceData)
             }
+
             (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
         }
         
@@ -30,9 +34,9 @@ export default function Results(props:any) {
         
             <div className="SM-Left">
                 <div>
-                    <Modal data={driver} type="driver"/> {/**I need to generate a dummy modal to prevent errors due to the .showModal Function */}
-                    <Modal data={constructor} type="constructor"/>
-                    <Modal data={circuit} type="circuit"/>
+                    <Modal data={driver} type="driver"  fav={props.fav} favHandle={props.favHandle}/> {/**I need to generate a dummy modal to prevent errors due to the .showModal Function */}
+                    <Modal data={constructor} type="constructor"  fav={props.fav} favHandle={props.favHandle}/>
+                    <Modal data={circuit} type="circuit"  fav={props.fav} favHandle={props.favHandle}/>
                 </div>
                 <h3>Results</h3>
                 <p>{`${raceData.name}, 

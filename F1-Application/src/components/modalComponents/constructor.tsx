@@ -14,11 +14,10 @@ export default function ConstructorContent(props: any) {
                             <a className="underline text-sky-400 hover:text-sky-200" href={props.data.constructors.url}>Wiki Page</a>
                         </div>
                         <div className="mr-10">
-                            <FavButton type={props.type} data={props.data} />
+                            <FavButton type={props.type} data={props.data} fav={props.fav} favHandle={props.favHandle}/>
                         </div>
                     </div>
                 </div>
-                <div className="divider"></div>
                 <div className="grid size-auto card bg-base-300 rounded-box place-items-center">
                     <img className="object-contain max-w-md m-4" src="https://placehold.co/600x400"></img>
                 </div>

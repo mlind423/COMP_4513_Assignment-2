@@ -1,5 +1,5 @@
 import Modal from "../modalComponents/modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function PrimaryPageContent(props:any) {
     if (!(props.data.drivers && props.data.constructors)){
@@ -7,22 +7,25 @@ export default function PrimaryPageContent(props:any) {
     }
     else if (props.data.drivers.error || props.data.constructors.error){
         return <div className="SM-Left"> It seems that we can't find some data for this race's standings. Sadly our data is incomplete and doesn't include most older races and races after 2023, sorry about that.</div>;
-    }    
+    } 
     const [driver, setDriver] = useState()
     const [constructor, setConstructor] = useState()
     const handleModal = (c:any) =>{
         if(c.target.id == 'driver'){
             setDriver(props.data.drivers.find((e:any) => e.drivers.driverRef === c.target.value))
+            props.favCheck(c.target.id, props.data.drivers.find((e:any) => e.drivers.driverRef === c.target.value))
         }else if(c.target.id == 'constructor'){
             setConstructor(props.data.constructors.find((e:any) => e.constructors.constructorRef === c.target.value))
+            props.favCheck(c.target.id, props.data.constructors.find((e:any) => e.constructors.constructorRef === c.target.value))
         }
+        
         (document.getElementById(`${c.target.id}`) as HTMLFormElement).showModal()
     }
     return(
         <div className="SM-Left">
             <div>
-                <Modal data={driver} type="driver"/>
-                <Modal data={constructor} type="constructor"/>
+                <Modal data={driver} type="driver" fav={props.fav} favHandle={props.favHandle}/>
+                <Modal data={constructor} type="constructor" fav={props.fav} favHandle={props.favHandle}/>
             </div>
             <h3>Standings</h3>
             <div id="SM-race-content">
