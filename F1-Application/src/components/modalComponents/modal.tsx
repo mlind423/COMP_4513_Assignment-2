@@ -2,6 +2,7 @@ import DriverContent from "./driver"
 import ConstructorContent from "./constructor"
 import FavouriteContent from "./favourites"
 import CircuitContent from "./circuit"
+import AboutContent from "./about"
 export default function Modal(props:any) {
     //onClick={() => document.getElementById(`${props.refId}`).showModal()}
     if(props.data != undefined){
@@ -31,6 +32,7 @@ export default function Modal(props:any) {
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         </form>
                         <FavouriteContent type={props.type}/>
+                        <AboutContent type={props.type}/>
                     </div>
                     <form method="dialog" className="modal-backdrop">
                         <button>close</button>

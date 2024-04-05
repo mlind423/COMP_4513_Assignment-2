@@ -39,7 +39,12 @@ export default function MainPage() {
     
     
     const handleModal = (c:any) => {
-        (document.getElementById(`favourites`) as HTMLFormElement).showModal()
+        if(c.target.id === "SM-favorites"){
+            (document.getElementById(`favourites`) as HTMLFormElement).showModal()
+        }else{
+            (document.getElementById(`about`) as HTMLFormElement).showModal()
+        }
+       
     }
 
     return (
@@ -51,8 +56,9 @@ export default function MainPage() {
             <h3 id="SM-title">F1 Dashboard Babey</h3>
             <nav id="SM-nav">
                 <Modal type='favourites' />
+                <Modal type='about'/>
                 <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" id="SM-favorites" onClick={handleModal} >Favorites</button>
-                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0">About</button>
+                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" onClick={handleModal}>About</button>
             </nav>
         </header>
 
