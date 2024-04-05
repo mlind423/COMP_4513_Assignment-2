@@ -1,4 +1,3 @@
-import { useState } from "react"
 import FavButton from "./favouritesButton"
 export default function DriverContent(props: any) {
     const calcAge = () => {

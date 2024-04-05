@@ -1,5 +1,3 @@
-import FavButton from "./favouritesButton"
-
 export default function FavouriteContent(props: any) {
     const driver = JSON.parse(localStorage.getItem('drivers') || '[]')
     const constructor = JSON.parse(localStorage.getItem('constructors') || '[]')

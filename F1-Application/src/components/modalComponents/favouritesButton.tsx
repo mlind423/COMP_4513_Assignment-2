@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-
 export default function FavButton (props:any) {
     function handle () {
         props.favHandle(props.type, props.data)

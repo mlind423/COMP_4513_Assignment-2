@@ -1,4 +1,3 @@
-import { useState } from "react"
 import FavButton from "./favouritesButton"
 export default function ConstructorContent(props: any) {
     // I Should move this to a different file since it will need to be used on multiple modals

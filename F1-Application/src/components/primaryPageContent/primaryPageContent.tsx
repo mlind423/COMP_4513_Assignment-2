@@ -1,6 +1,6 @@
 import Races from "./races";
 import RightContainer from "./rightContainer";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 export default function PrimaryPageContent(props:any) {
 
 

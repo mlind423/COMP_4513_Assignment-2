@@ -3,7 +3,6 @@ import ConstructorContent from "./constructor"
 import FavouriteContent from "./favourites"
 import CircuitContent from "./circuit"
 import AboutContent from "./about"
-import { useState } from "react"
 export default function Modal(props:any) {
     //onClick={() => document.getElementById(`${props.refId}`).showModal()}
     if(props.data != undefined){
