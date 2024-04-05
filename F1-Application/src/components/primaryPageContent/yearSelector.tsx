@@ -18,8 +18,8 @@ export default function YearSelector(props:any) {
     }
     if (years){
         return(
-            <select id="SM-year" className="select select-bordered w-full max-w-xs h-12" onChange={changeHandler}>
-                <option disabled selected>Season</option>
+            <select defaultValue={"Select"} id="SM-year" className="select select-bordered w-full max-w-xs h-12" onChange={changeHandler}>
+                <option disabled value={"Select"}>Season</option>
                 {years.map((c:any) => <option  value={c.year} key={c.year}>{c.year}</option>)}
 
             </select>
