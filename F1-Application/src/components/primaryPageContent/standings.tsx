@@ -1,4 +1,5 @@
 import Modal from "../modalComponents/modal";
+import { useState } from "react";
 export default function PrimaryPageContent(props:any) {
     if (!(props.data.drivers && props.data.constructors)){
         return <span className="loading loading-spinner loading-lg"></span>;
