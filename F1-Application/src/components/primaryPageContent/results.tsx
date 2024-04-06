@@ -41,12 +41,13 @@ export default function Results(props:any) {
                     <Modal data={circuit} type="circuit"  fav={props.fav} favHandle={props.favHandle}/>
                 </div>
                 <h3>Results</h3>
-                <p>{`${raceData.name}, 
-                Round ${raceData.round}, 
-                ${raceData.year}, `}
-                <button className="text-secondary-content btn btn-secondary btn-sm rounded-full m-1 border-transparent text-primary-content border-0 hover:btn-primary hover:text-primary-content" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
-                {" " + raceData.date + ", "}
-                <a href={raceData.url} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                <p id="SM-Race-Print">
+                    {`${raceData.name}, 
+                    Round ${raceData.round}, 
+                    ${raceData.year}, `}
+                    <button className="text-secondary-content btn btn-secondary btn-sm rounded-full m-1 border-transparent text-primary-content border-0 hover:btn-primary hover:text-primary-content" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
+                    {" " + raceData.date + ", "}
+                    <a href={raceData.url} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                 
             
                 </p>
