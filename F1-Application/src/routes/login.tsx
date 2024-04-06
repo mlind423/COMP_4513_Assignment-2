@@ -9,13 +9,13 @@ export default function Root() {
                         <h1 className="text-5xl font-bold">Hello there</h1>
                         <p className="py-6">Please Log in when you get the chance</p>
                         <Form method="get" action="/main">
-                            <label htmlFor="username">Username:</label>
-                            <input type="text" placeholder="Username" name="username" className="input input-bordered w-full max-w-xs" />
+                            <label htmlFor="username">Email:</label>
+                            <input type="email" placeholder="Email" name="username" pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$" className="input input-bordered w-full max-w-xs" required/>
                             <br></br>
                             <label htmlFor="password">Password:</label>
-                            <input type="text" placeholder="Password" name="password" className="input input-bordered w-full max-w-xs" />
+                            <input type="text" placeholder="Password" name="password" minLength={10} className="input input-bordered w-full max-w-xs" required/>
                             <br></br>
-                            <input type="submit" value="Submit" className="btn" />
+                            <input type="submit" value="Submit" className="btn btn-sm btn-primary my-2" />
                             
                         </Form>
                     </div>

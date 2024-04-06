@@ -42,7 +42,7 @@ export default function Results(props:any) {
                 <p>{`${raceData.name}, 
                 Round ${raceData.round}, 
                 ${raceData.year}, `}
-                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-1 border-transparent text-primary-content border-0" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
+                <button className="text-secondary-content btn btn-secondary btn-sm rounded-full m-1 border-transparent text-primary-content border-0" id='circuit' value={raceData.name} onClick={handleModal}>{raceData.circuits.name + ","}</button>
                 {" " + raceData.date + ", "}
                 <a href={raceData.url} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                 
@@ -76,9 +76,9 @@ export default function Results(props:any) {
                     <ul className="SM-rightResults">
                         <h4>Results</h4>
                         <div id="SM-Card-Container">
-                            <div className="SM-Results-Card bg-accent text-accent-content rounded">{props.resultsData[0].drivers.forename + " " + props.resultsData[0].drivers.surname}<h5>1st</h5></div>
-                            <div className="SM-Results-Card bg-accent text-accent-content rounded">{props.resultsData[1].drivers.forename + " " + props.resultsData[1].drivers.surname}<h5>2nd</h5></div>
-                            <div className="SM-Results-Card bg-accent text-accent-content rounded">{props.resultsData[2].drivers.forename + " " + props.resultsData[2].drivers.surname}<h5>3rd</h5></div>
+                            <div className="SM-Results-Card bg-primary text-primary-content rounded">{props.resultsData[0].drivers.forename + " " + props.resultsData[0].drivers.surname}<h5>1st</h5></div>
+                            <div className="SM-Results-Card bg-primary text-primary-content rounded">{props.resultsData[1].drivers.forename + " " + props.resultsData[1].drivers.surname}<h5>2nd</h5></div>
+                            <div className="SM-Results-Card bg-primary text-primary-content rounded">{props.resultsData[2].drivers.forename + " " + props.resultsData[2].drivers.surname}<h5>3rd</h5></div>
                         </div>
                         <li>
                             <div className="SM-Position text-center">#</div>

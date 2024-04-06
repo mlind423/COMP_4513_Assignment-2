@@ -80,19 +80,20 @@ h3{
 }
 #SM-race-content{
     display: flex;
-    height: calc(100vh)
+    height: calc(100vh - 56px - 64px - 8px);
+    padding-bottom: 8px;
+    
 }
 #SM-results-content{
     display: flex;
-    height: calc(100vh)
+    height: calc(100vh - 56px - 64px - 8px);
+    padding-bottom: 8px;
 }
 .SM-rightStanding, .SM-leftStanding, .SM-rightResults, .SM-leftResults{
     flex-grow: 1;
     margin: 0 8px;
     padding-bottom: 4px;
     padding-right: 6px;
-    background-color: dimgray;
-    color: lightgray;
     overflow-y: scroll;
 }
 .SM-leftStanding > li,.SM-rightStanding > li{
