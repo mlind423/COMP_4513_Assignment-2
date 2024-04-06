@@ -1,7 +1,7 @@
 import { useState} from "react"
-import YearSelector from "./yearSelector"
+
 import PrimaryPageContent from "./primaryPageContent"
-import Modal from "../modalComponents/modal"
+import Header from "./header";
 //const [selectedYear, setYear] = useState();
 
 
@@ -38,34 +38,13 @@ export default function MainPage() {
     }
     
     
-    const handleModal = (c:any) => {
-        if(c.target.id === "SM-favorites"){
-            (document.getElementById(`favourites`) as HTMLFormElement).showModal()
-        }else{
-            (document.getElementById(`about`) as HTMLFormElement).showModal()
-        }
-       
-    }
+    
 
     return (
     <div id="mainBody">
-        <header id="SM-header"> 
-            <div id="SM-year-container">
-                <YearSelector  setter={setCurrentYear} setters={setters} ></YearSelector>
-            </div>
-            <h3 id="SM-title">F1 Dashboard Babey</h3>
-            <nav id="SM-nav">
-                <Modal type='favourites' />
-                <Modal type='about'/>
-                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" id="SM-favorites" onClick={handleModal} >Favorites</button>
-                <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0" onClick={handleModal}>About</button>
-            </nav>
-        </header>
+        <Header setters={setters} setCurrentYear={setCurrentYear}></Header>
 
-        <PrimaryPageContent currentYear={currentYear} setters={setters} getters={getters}>
-
-
-        </PrimaryPageContent>
+        <PrimaryPageContent currentYear={currentYear} setters={setters} getters={getters}></PrimaryPageContent>
     </div>
     )
 }

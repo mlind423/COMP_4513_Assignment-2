@@ -1,4 +1,6 @@
-import FavButton from "./favouritesButton"
+import FavButton from "./favouritesButton";
+import { useState } from "react";
+import ImgRequest from "./imgRequest";
 export default function DriverContent(props: any) {
     const calcAge = () => {
         const dob: string = props.data.drivers.dob
@@ -10,6 +12,11 @@ export default function DriverContent(props: any) {
         const age: number = (((currentYear - Number(dobArray[0])) * 365) + ((currentMonth - Number(dobArray[1])) * 31) + (currentDay - Number(dobArray[2]))) / 365
         return Math.floor(age)
     }
+
+    let [source, setSource] = useState();
+    // Currently source will go unused, as we have no database for images. Given we did have one though
+    // We would request for our image here
+
     if (props.type == "driver") {//This prevents the driver formatting from appearing in a different modal 
         calcAge()
         return (
@@ -31,7 +38,7 @@ export default function DriverContent(props: any) {
                 </div>
                 <div className="divider"></div>
                 <div className="grid size-auto card bg-base-300 rounded-box place-items-center">
-                    <img className="object-contain max-w-md m-4" src="https://placehold.co/600x400"></img>
+                    <ImgRequest className="object-contain max-w-md m-4" src={source} srcDefault="https://placehold.co/600x400"></ImgRequest>
                 </div>
             </div>
         )

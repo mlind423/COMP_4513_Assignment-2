@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 export default function YearSelector(props:any) {
     const [years, setYears] = useState();
     useEffect( () => {
-
-
         let url = "https://absorbed-deluxe-nyala.glitch.me/api/seasons";
         console.log("fetching ... here to check if I’ve gone infinite");
         fetch (url)
         .then( resp => resp.json() )
         .then( data => { setYears(data); })
     }, [] );
+    //Resets all the states to null, to reset the views whenever the year changes
     const changeHandler = (c:any) =>{
         for (const curr in props.setters){
             props.setters[curr]();

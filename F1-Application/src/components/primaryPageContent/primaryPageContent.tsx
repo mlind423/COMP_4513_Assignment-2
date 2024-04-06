@@ -3,7 +3,7 @@ import RightContainer from "./rightContainer";
 import { useEffect } from "react";
 export default function PrimaryPageContent(props:any) {
 
-
+// Fetches data for the left pane race selector, Refreshes whenever the selected year is changed
 useEffect( () => {
     let url = "https://absorbed-deluxe-nyala.glitch.me/api/races/season/" + props.currentYear;
     console.log("fetching raceData ... here to check if I've gone infinite");
@@ -12,6 +12,7 @@ useEffect( () => {
     .then( data => { props.setters.setRaceData(data); });
     
 },[props.setters.setRaceData,props.currentYear]);
+// Fetches data for the Right pane when selecting the results, otherwise does nothing
 useEffect(()=> {
     if (props.getters.currentView && props.getters.currentView[0]== "Results") {
         let url = "https://absorbed-deluxe-nyala.glitch.me/api/qualifying/" + props.getters.currentView[1];
@@ -30,7 +31,7 @@ useEffect(()=> {
         .then( data => { props.setters.setSingularRaceData(data); })
     }
 },[props.setters.setResultsData,props.setters.setQualifyingData, props.setters.setSingularRaceData,props.getters.currentView]);
-
+// Fetches data for the Right pane when selecting the standings, otherwise does nothing
 useEffect(()=> {
     if (props.getters.currentView && props.getters.currentView[0]== "Standings") {
         let url = "https://absorbed-deluxe-nyala.glitch.me/api/standings/"+ props.getters.currentView[1]+"/constructors" ;
@@ -51,9 +52,9 @@ const standingsData = {
     drivers: props.getters.driversStandings,
     constructors: props.getters.constructorsStandings
 }
-//Necessary to add on additional circuit data 
-//https://absorbed-deluxe-nyala.glitch.me/api/races/1052
-// const singularRaceData = [{"year":2021,"round":1,"name":"Bahrain Grand Prix","date":"2021-03-28","time":"15:00:00","url":"http://en.wikipedia.org/wiki/2021_Bahrain_Grand_Prix","fp1_date":"2021-03-26","fp1_time":null,"fp2_date":"2021-03-26","fp2_time":null,"fp3_date":"2021-03-27","fp3_time":null,"quali_date":"2021-03-27","quali_time":null,"sprint_date":null,"sprint_time":null,"circuits":{"name":"Bahrain International Circuit","country":"Bahrain","location":"Sakhir"}}]
+
+// The following is to render only the left pane when the raceData is unavailable, as it means the API needs more time to wake up.
+
 if (!props.getters.raceData){
     return (
         <div id="SM-main">

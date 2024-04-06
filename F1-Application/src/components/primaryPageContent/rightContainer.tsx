@@ -113,7 +113,8 @@ export default function RightContainer(props:any) {
             localStorage.setItem('circuits', JSON.stringify(circuits))
         }
     }, [circuits])
-
+    //Selective Rendering, based on the values of the buttons in the races pane
+    //Each only passes the props it should need
     if(props.currentView && props.currentView[0]== "Standings"){
         return <Standings id="SM-standings" data={props.standingsData} fav={fav} favHandle={handler} favCheck={checkForFavourites}></Standings>
     }

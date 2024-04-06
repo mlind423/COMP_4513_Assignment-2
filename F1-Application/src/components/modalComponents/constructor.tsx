@@ -1,5 +1,12 @@
-import FavButton from "./favouritesButton"
+import FavButton from "./favouritesButton";
+import { useState } from "react";
+import ImgRequest from "./imgRequest";
 export default function ConstructorContent(props: any) {
+    let [source, setSource] = useState();
+    // Currently source will go unused, as we have no database for images. Given we did have one though
+    // We would request for our image here
+
+
     // I Should move this to a different file since it will need to be used on multiple modals
     if (props.type == "constructor") {//This prevents the driver formatting from appearing in a different modal 
         return (
@@ -18,7 +25,7 @@ export default function ConstructorContent(props: any) {
                     </div>
                 </div>
                 <div className="grid size-auto card bg-base-300 rounded-box place-items-center">
-                    <img className="object-contain max-w-md m-4" src="https://placehold.co/600x400"></img>
+                    <ImgRequest className="object-contain max-w-md m-4" src={source} srcDefault="https://placehold.co/600x400"></ImgRequest>
                 </div>
             </div>
         )

@@ -1,6 +1,6 @@
 export default function Races(props:any) {
 
-    //This will change the display on the right when clicked
+    //This will change the display on the right when clicked, the clearing is necessary for the selective rendering. 
     const clickhandler = (c:any) =>{
         let view = c.target.value.split(",");
         props.setters.setCurrentView(view);
@@ -8,6 +8,7 @@ export default function Races(props:any) {
         props.setters.setConstructorsStandings();
         props.setters.setQualifyingData();
     }
+    // Selective rendering, renders and animated image when the data is empty. 
     if (!props.raceData){
         return (
             <div className="SM-Left">
@@ -17,6 +18,7 @@ export default function Races(props:any) {
         )
         ;
     } 
+    // This only renders the first time, when no year is selected
     if (props.raceData.error == "Put in a year silly :p"){
         console.log(props.raceData.error)
         return <div id="SM-Left">Welcome, Please select a year to begin viewing races </div>;
@@ -40,8 +42,8 @@ export default function Races(props:any) {
                             <li key={c.round}>
                                 <div className="SM-races-Round">{c.round}</div>
                                 <div className="SM-races-Name">{c.name}</div>
-                                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-2 border-transparent text-primary-content border-0" value={"Results," + c.raceId} onClick={clickhandler}>Results</button>
-                                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-2 border-transparent text-primary-content border-0" value={"Standings," + c.raceId}  onClick={clickhandler}>Standings</button>
+                                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-2 border-transparent text-primary-content border-0 hover:btn-secondary hover:text-secondary-content" value={"Results," + c.raceId} onClick={clickhandler}>Results</button>
+                                <button className="text-primary-content btn btn-primary btn-sm rounded-full m-2 border-transparent text-primary-content border-0 hover:btn-secondary hover:text-secondary-content" value={"Standings," + c.raceId}  onClick={clickhandler}>Standings</button>
                             </li>
                         )
                     })}
