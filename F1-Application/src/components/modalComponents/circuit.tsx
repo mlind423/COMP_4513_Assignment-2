@@ -21,7 +21,7 @@ export default function CircuitContent(props:any) {
                     </div>
                     
                 </div>
-                <div className="divider"></div>
+                <div className="divider"> </div>
                 <div className="flex flex-col size-auto lg:flex-row">
                     <div className="grid flex-grow size-auto card bg-base-300 rounded-box place-items-center px-3 py-3">
                         <ImgRequest className="h-max max-w-lg" src={source} srcDefault="https://placehold.co/1920x1080"></ImgRequest>

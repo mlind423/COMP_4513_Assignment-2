@@ -1,11 +1,14 @@
 import YearSelector from "./yearSelector"
 import Modal from "../modalComponents/modal"
+import { useState } from "react";
 
 export default function Header(props:any) {
+    const [favData, setFavData] = useState(Array<string>);
     //Simply renders the top header
     const handleModal = (c:any) => {
         if(c.target.id === "SM-favorites"){
             (document.getElementById(`favourites`) as HTMLFormElement).showModal()
+            setFavData([])
         }else{
             (document.getElementById(`about`) as HTMLFormElement).showModal()
         }

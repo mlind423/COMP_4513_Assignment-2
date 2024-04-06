@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useEffect, useState} from "react"
 
 import PrimaryPageContent from "./primaryPageContent"
 import Header from "./header";
@@ -16,7 +16,7 @@ export default function MainPage() {
     const [constructorsStandings, setConstructorsStandings] = useState();
     const [driversStandings, setDriversStandings] = useState();
     const [singularRaceData, setSingularRaceData] = useState();
-    const [favData, setFavData] = useState(Array<string>);
+    
 
     const getters = 
     {
@@ -37,8 +37,6 @@ export default function MainPage() {
         setDriversStandings:setDriversStandings,
         setSingularRaceData:setSingularRaceData
     }
-    
-    
     
 
     return (

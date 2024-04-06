@@ -13,7 +13,7 @@ export default function AboutContent(props:any) {
                     </div>
                     <div className="divider"> </div>
                     <div className="grid flex-grow size-auto card bg-base-300 rounded-box place-items-start px-3 py-3">
-                        <p>This website displays F1 race information from our API which was created using Node.js and Express.<br></br> This website is using React, Vite, DaisyUI, TailwindCSS, Typescript, and ReactRouter </p>
+                        <p>This website displays F1 race information from our API which was created using Node.js and Express.<br></br> This website is using React, Vite, DaisyUI, TailwindCSS, Typescript, CSS, and ReactRouter. </p>
                     </div>
                 </div>
             </div>
