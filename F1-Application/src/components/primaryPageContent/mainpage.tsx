@@ -16,6 +16,7 @@ export default function MainPage() {
     const [constructorsStandings, setConstructorsStandings] = useState();
     const [driversStandings, setDriversStandings] = useState();
     const [singularRaceData, setSingularRaceData] = useState();
+    const [favData, setFavData] = useState(Array<string>);
 
     const getters = 
     {
@@ -43,7 +44,6 @@ export default function MainPage() {
     return (
     <div id="mainBody">
         <Header setters={setters} setCurrentYear={setCurrentYear}></Header>
-
         <PrimaryPageContent currentYear={currentYear} setters={setters} getters={getters}></PrimaryPageContent>
     </div>
     )
