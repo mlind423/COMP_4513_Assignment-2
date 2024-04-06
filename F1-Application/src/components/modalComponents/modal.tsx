@@ -31,7 +31,7 @@ export default function Modal(props:any) {
                         <form method="dialog">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         </form>
-                        <FavouriteContent type={props.type} favHandle={props.favHandle} fav="♥"/>
+                        <FavouriteContent type={props.type}/>
                         <AboutContent type={props.type}/>
                     </div>
                     <form method="dialog" className="modal-backdrop">

@@ -6,6 +6,7 @@ export default function RightContainer(props:any) {
     const [constructors, setConstructors] = useState(Array<string>)
     const [circuits, setCircuits] = useState(Array<string>)
     const [fav, setFav] = useState('♡')
+    
 
     function handler(type:string, data:any){
         if(fav == "♡"){
@@ -17,13 +18,11 @@ export default function RightContainer(props:any) {
 
     const addToFavourites = (type:string, data:any) =>{
         if(type === 'driver'){
-            if(drivers.find(e => e === (data.drivers.forename  + ' ' + data.drivers.surname)) == undefined){
-                const value:string = data.drivers.forename + ' ' + data.drivers.surname
-                setDrivers(JSON.parse(localStorage.getItem('drivers') || '[]'))
-                const temp:string[] = [...drivers, value]
-                setDrivers(temp)
-                setFav("♥")
-            }
+            const value:string = data.drivers.forename + ' ' + data.drivers.surname
+            setDrivers(JSON.parse(localStorage.getItem('drivers') || '[]'))
+            const temp:string[] = [...drivers, value]
+            setDrivers(temp)
+            setFav("♥")
         }else if(type === 'constructor'){
             setConstructors(JSON.parse(localStorage.getItem('constructors') || '[]'))
             const temp:string[] = [...constructors, data.constructors.name]
@@ -106,7 +105,6 @@ export default function RightContainer(props:any) {
         if(constructors.length != 0){
             localStorage.setItem('constructors', JSON.stringify(constructors))
         }
-        
     }, [constructors])
     useEffect(() => {
         if(circuits.length != 0){
