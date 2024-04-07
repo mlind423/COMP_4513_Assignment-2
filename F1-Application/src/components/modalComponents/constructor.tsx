@@ -11,7 +11,7 @@ export default function ConstructorContent(props: any) {
     if (props.type == "constructor") {//This prevents the driver formatting from appearing in a different modal 
         return (
             <div className="flex flex-col w-full modal-box w-100 px-3 py-3">
-                <h1>Constructor details</h1>
+                <h1 className="text-xl">Constructor details</h1>
                 <div className="flex w-full">
                     <div className="grid h-auto flex-grow card bg-base-300 rounded-box grid grid-cols-2 gap-4 place-items-center justify-items-end">
                         <div className="gird grid-rows-5 gap-4 px-3 py-3 w-max justify-self-start">

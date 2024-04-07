@@ -42,12 +42,13 @@ export default function RightContainer(props:any) {
                 const temp:string[] = drivers
                 temp.splice(indx, 1)
                 setDrivers(temp)
-                
+                localStorage.setItem('drivers', JSON.stringify(drivers));
             }else{
                 const empt:Array<string> = []
                 setDrivers(empt)
+                localStorage.setItem('drivers', '')
             }
-            localStorage.setItem('drivers', JSON.stringify(drivers));
+            
             setFav("♡")
         }else if(type === 'constructor'){
             if(constructors.length != 1){
@@ -56,12 +57,13 @@ export default function RightContainer(props:any) {
                 const temp:string[] = constructors
                 temp.splice(indx, 1)
                 setConstructors(temp)
-                
+                localStorage.setItem('constructors', JSON.stringify(constructors))
             }else{
                 const empt:Array<string> = []
                 setConstructors(empt)
+                localStorage.setItem('constructors', '')
             }
-            localStorage.setItem('constructors', JSON.stringify(constructors))
+            
             setFav("♡")
         }else if(type === 'circuit'){
             if(circuits.length != 1){
@@ -70,12 +72,14 @@ export default function RightContainer(props:any) {
                 const temp:string[] = circuits
                 temp.splice(indx, 1)
                 setCircuits(temp)
+                localStorage.setItem('circuits', JSON.stringify(circuits))
             }else{
                 const empt:Array<string> = []
                 setCircuits(empt)
+                localStorage.setItem('circuits', "")
             }
             setFav("♡")
-            localStorage.setItem('circuits', JSON.stringify(circuits))
+            
         }
         
     }
@@ -120,11 +124,13 @@ export default function RightContainer(props:any) {
             localStorage.setItem('circuits', JSON.stringify(circuits))
         }
     }, [circuits])
+
     useEffect(() => {
         setDrivers(JSON.parse(localStorage.getItem('drivers') || '[]'))
         setConstructors(JSON.parse(localStorage.getItem('constructors') || '[]'))
         setCircuits(JSON.parse(localStorage.getItem('circuits') || '[]'))
     }, [])
+
     //Selective Rendering, based on the values of the buttons in the races pane
     //Each only passes the props it should need
     if(props.currentView && props.currentView[0]== "Standings"){

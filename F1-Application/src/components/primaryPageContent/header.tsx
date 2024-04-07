@@ -19,7 +19,7 @@ export default function Header(props:any) {
             <div id="SM-year-container">
                 <YearSelector  setter={props.setCurrentYear} setters={props.setters} ></YearSelector>
             </div>
-            <h3 id="SM-title">F1 Dashboard Babey</h3>
+            <h3 id="SM-title" className="text-2xl">F1 Dashboard</h3>
             <nav id="SM-nav">
                 <Modal type='favourites' />
                 <Modal type='about'/>

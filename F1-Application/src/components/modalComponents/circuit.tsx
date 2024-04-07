@@ -8,7 +8,7 @@ export default function CircuitContent(props:any) {
     if(props.type == 'circuit'){
         return(
             <div className="flex flex-col size-auto modal-box w-auto max-w-none px-3 py-3">
-                <h1>Circuit details</h1>
+                <h1 className="text-xl">Circuit details</h1>
                 <div className="grid h-auto flex-grow card bg-base-300 rounded-box grid grid-cols-2 gap-4 place-items-center justify-items-end">
                     <div className="gird grid-rows-4 gap-4 px-4 py-3 w-max justify-self-start">
                         <p>Name: {props.data.circuits.name}</p>

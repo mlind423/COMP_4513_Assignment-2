@@ -26,7 +26,7 @@ export default function Modal(props:any) {
     }else{ //this modal functions as a dummy modal as well as the favourites modal 
         return(
             <div>
-                <dialog id={props.type} className="modal w-auto">
+                <dialog id={props.type} className="modal w-full">
                     <div className="modal-box px-10 py-10 max-w-none w-auto overflow-hidden">
                         <form method="dialog">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
