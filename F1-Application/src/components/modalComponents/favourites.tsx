@@ -7,6 +7,7 @@ export default function FavouriteContent(props: any) {
     const [rem, setRem] = useState(Array<string>);
 
     function handleRemove(e:any) {
+        rem
         if(e.target.id === 'dr'){
             localStorage.setItem('drivers', '')
         }else if(e.target.id === 'con'){
