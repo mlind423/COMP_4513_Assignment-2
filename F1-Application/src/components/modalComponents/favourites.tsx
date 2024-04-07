@@ -13,7 +13,7 @@ export default function FavouriteContent(props: any) {
         }else if(e.target.id === 'con'){
             localStorage.setItem('constructors', '')
         }else if(e.target.id === 'cir'){
-            localStorage.setItem('circuits', "")
+            localStorage.setItem('circuits', '')
         }
         setRem([])
     }
