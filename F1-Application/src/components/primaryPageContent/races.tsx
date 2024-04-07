@@ -20,7 +20,6 @@ export default function Races(props:any) {
     } 
     // This only renders the first time, when no year is selected
     if (props.raceData.error == "Put in a year silly :p"){
-        console.log(props.raceData.error)
         return <div id="SM-Left">Welcome, Please select a year to begin viewing races </div>;
     }
     if (props.raceData.error){

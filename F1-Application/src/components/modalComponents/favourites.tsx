@@ -12,8 +12,8 @@ export default function FavouriteContent(props: any) {
             localStorage.setItem('drivers', '')
         }else if(e.target.id === 'con'){
             localStorage.setItem('constructors', '')
-        }else if(e.target.id === 'circuit'){
-            localStorage.setItem('cir', "")
+        }else if(e.target.id === 'cir'){
+            localStorage.setItem('circuits', '')
         }
         setRem([])
     }

@@ -19,11 +19,11 @@ export default function Results(props:any) {
         const handleModal = (c:any) =>{
             // alert("IG add " + c.target.value+ " to the favorites list");
             if(c.target.id == 'driver'){
-                setDriver(props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
-                props.favCheck(c.target.id, props.qualifyingData.find((e:any) => e.drivers.driverRef === c.target.value))
+                setDriver(props.resultsData.find((e:any) => e.drivers.driverRef === c.target.value))
+                props.favCheck(c.target.id, props.resultsData.find((e:any) => e.drivers.driverRef === c.target.value))
             }else if(c.target.id == 'constructor'){
-                setConstructor(props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
-                props.favCheck(c.target.id, props.qualifyingData.find((e:any) => e.constructors.constructorRef === c.target.value))
+                setConstructor(props.resultsData.find((e:any) => e.constructors.constructorRef === c.target.value))
+                props.favCheck(c.target.id, props.resultsData.find((e:any) => e.constructors.constructorRef === c.target.value))
             }else if(c.target.id == 'circuit'){
                 setCircuit(raceData)
                 props.favCheck(c.target.id, raceData)

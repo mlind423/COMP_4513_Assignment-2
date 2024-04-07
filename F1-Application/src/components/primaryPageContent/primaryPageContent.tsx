@@ -17,7 +17,6 @@ useEffect(()=> {
     if (props.getters.currentView && props.getters.currentView[0]== "Results") {
         let url = "https://absorbed-deluxe-nyala.glitch.me/api/qualifying/" + props.getters.currentView[1];
         console.log("fetching Qualifying/Results Data ... here to check if I've gone infinite");
-        console.log("Results url is" + url);
         fetch (url)
         .then( resp => resp.json() )
         .then( data => {props.setters.setQualifyingData(data); })
@@ -40,7 +39,6 @@ useEffect(()=> {
         .then( resp => resp.json() )
         .then( data => { props.setters.setConstructorsStandings(data); })
         url = "https://absorbed-deluxe-nyala.glitch.me/api/standings/"+ props.getters.currentView[1]+"/drivers";
-        console.log("DriverStandings url is " + url);
         fetch (url)
         .then( resp => resp.json() )
         .then( data => { props.setters.setDriversStandings(data); })
