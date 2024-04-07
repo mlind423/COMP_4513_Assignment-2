@@ -12,7 +12,7 @@ export default function Header(props:any) {
         }else{
             (document.getElementById(`about`) as HTMLFormElement).showModal()
         }
-       
+        favData
     }
     return(
         <header id="SM-header"> 

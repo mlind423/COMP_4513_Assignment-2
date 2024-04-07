@@ -1,8 +1,7 @@
 import FavButton from "./favouritesButton";
-import { useState } from "react";
 import ImgRequest from "./imgRequest";
 export default function ConstructorContent(props: any) {
-    let [source, setSource] = useState();
+    // let [source, setSource] = useState();
     // Currently source will go unused, as we have no database for images. Given we did have one though
     // We would request for our image here
 
@@ -26,7 +25,7 @@ export default function ConstructorContent(props: any) {
                 </div>
                 <div className="divider"></div>
                 <div className="grid size-auto card bg-base-300 rounded-box place-items-center">
-                    <ImgRequest className="object-contain max-w-md m-4" src={source} srcDefault="https://placehold.co/600x400"></ImgRequest>
+                    <ImgRequest className="object-contain max-w-md m-4" srcDefault="https://placehold.co/600x400"></ImgRequest>
                 </div>
             </div>
         )

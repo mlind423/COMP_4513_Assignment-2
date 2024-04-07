@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 export default function YearSelector(props:any) {
-    const [years, setYears] = useState();
+    const [years, setYears] = useState(Array<number>);
     useEffect( () => {
         let url = "https://absorbed-deluxe-nyala.glitch.me/api/seasons";
         console.log("fetching ... here to check if I’ve gone infinite");
