@@ -7,8 +7,8 @@ export default function AboutContent(props:any) {
                 <div className="flex flex-col size-auto lg:flex-row">
                     <div className="grid flex-grow w-4/5 h-auto card bg-base-300 rounded-box place-items-start px-3 py-3">
                         <p>Credits: <br></br>
-                        <a href='https://github.com/mlind423' className="hover:text-sky-400">Matthew Lindstrom</a><br></br>
-                        <a href="https://github.com/Spencerreids" className="hover:text-sky-400">Spencer Reid</a><br></br>
+                        <a href='https://github.com/mlind423' className="text-sky-600 underline hover:text-sky-400">Matthew Lindstrom</a><br></br>
+                        <a href="https://github.com/Spencerreids" className="text-sky-600 underline hover:text-sky-400">Spencer Reid</a><br></br>
                         <a href="https://github.com/mlind423/COMP_4513_Assignment-2" className="text-sky-600 underline hover:text-sky-400">Git Repo</a></p>
                     </div>
                     <div className="divider"> </div>
