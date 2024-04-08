@@ -21,7 +21,7 @@ export default function Header(props:any) {
             </div>
             <h3 id="SM-title" className="text-2xl">F1 Dashboard</h3>
             <nav id="SM-nav">
-                <Modal type='favourites' />
+                <Modal type='favourites'/>
                 <Modal type='about'/>
                 <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0 hover:btn-secondary hover:text-secondary-content" id="SM-favorites" onClick={handleModal} >Favorites</button>
                 <button className="text-primary-content btn btn-primary btn-sm rounded-full  border-transparent text-primary-content border-0 hover:btn-secondary hover:text-secondary-content" onClick={handleModal}>About</button>

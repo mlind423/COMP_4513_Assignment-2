@@ -85,23 +85,27 @@ export default function RightContainer(props:any) {
     }
 
     const checkForFavourites = (type:string, data:any) => {
-        setDrivers(JSON.parse(localStorage.getItem('drivers') || '[]'))
-        setConstructors(JSON.parse(localStorage.getItem('constructors') || '[]'))
-        setCircuits(JSON.parse(localStorage.getItem('circuits') || '[]'))
+        let myDrivers = JSON.parse(localStorage.getItem('drivers') || '[]');
+        let myConstructors = JSON.parse(localStorage.getItem('constructors') || '[]');
+        let myCircuits = JSON.parse(localStorage.getItem('circuits') || '[]');
+        setDrivers(myDrivers);
+        setConstructors(myConstructors);
+        setCircuits(myCircuits);
         if(type === 'driver'){
-            if(drivers.find((e:any) => e === (data.drivers.forename  + ' ' + data.drivers.surname)) == undefined){
+            if(myDrivers.find((e:any) => e === (data.drivers.forename  + ' ' + data.drivers.surname)) == undefined){
+                
                 setFav("♡")
             }else{
                 setFav("♥")
             }
         }else if(type === 'constructor'){
-            if(constructors.find((e:any) => e === data.constructors.name) == undefined){
+            if(myConstructors.find((e:any) => e === data.constructors.name) == undefined){
                 setFav("♡")
             }else{
                 setFav("♥")
             }
         }else if(type === 'circuit'){
-            if(circuits.find((e:any) => e === data.circuits.name) == undefined){
+            if(myCircuits.find((e:any) => e === data.circuits.name) == undefined){
                 setFav("♡")
             }else{
                 setFav("♥")

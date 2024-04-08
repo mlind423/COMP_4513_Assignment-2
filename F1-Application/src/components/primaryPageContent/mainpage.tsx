@@ -16,7 +16,6 @@ export default function MainPage() {
     const [constructorsStandings, setConstructorsStandings] = useState();
     const [driversStandings, setDriversStandings] = useState();
     const [singularRaceData, setSingularRaceData] = useState();
-    
 
     const getters = 
     {

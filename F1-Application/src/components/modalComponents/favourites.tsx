@@ -9,11 +9,11 @@ export default function FavouriteContent(props: any) {
     function handleRemove(e:any) {
         rem
         if(e.target.id === 'dr'){
-            localStorage.setItem('drivers', '')
+            localStorage.setItem('drivers', '');
         }else if(e.target.id === 'con'){
-            localStorage.setItem('constructors', '')
+            localStorage.setItem('constructors', '');
         }else if(e.target.id === 'cir'){
-            localStorage.setItem('circuits', '')
+            localStorage.setItem('circuits', '');
         }
         setRem([])
     }
